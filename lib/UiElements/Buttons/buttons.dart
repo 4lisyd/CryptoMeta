@@ -3,18 +3,20 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class Button1 extends StatelessWidget {
-  Button1(this.buttonText, this.pressFunc, this.darkOrNot, {super.key});
+  Button1(
+    this.buttonText,
+    this.pressFunc,
+    this.darkOrNot,
+  );
 
   String buttonText;
-  Function pressFunc;
+  dynamic pressFunc;
   bool darkOrNot;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        pressFunc();
-      },
+      onPressed: pressFunc,
       child: Container(
         alignment: Alignment.center,
         width: MediaQuery.of(context).size.width - 80,

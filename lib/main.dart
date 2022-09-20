@@ -1,4 +1,5 @@
 import 'package:crypto_meta/screens/Intro/Intro.dart';
+import 'package:crypto_meta/screens/SignInNUp/SignUpStep1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,7 +35,12 @@ class MyApp extends StatelessWidget {
               color: Colors.white,
             ), // all the buttons use this text style
           )),
-      home: const MyHomePage(),
+      // routes: {
+      // '/': (context) => Intro(),
+      // When navigating to the "/second" route, build the SecondScreen widget.
+      // '/second': (context) => SecondScreen(),
+      // },
+      home: MyHomePage(),
     );
   }
 }
