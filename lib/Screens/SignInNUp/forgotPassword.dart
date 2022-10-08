@@ -3,7 +3,9 @@ import 'package:crypto_meta/UiElements/TextFields/TextFields.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({Key? key}) : super(key: key);
+  ForgotPassword({Key? key}) : super(key: key);
+
+  TextEditingController _editingControllerEmail = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class ForgotPassword extends StatelessWidget {
                 Text(
                     "Enter your email below & we will send you a reset email."),
                 SizedBox(height: 100),
-                TextField1("Enter email"),
+                TextField1("Enter email", _editingControllerEmail),
                 SizedBox(height: 20),
               ],
             ),

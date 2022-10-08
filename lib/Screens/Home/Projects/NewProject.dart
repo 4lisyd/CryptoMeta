@@ -20,14 +20,14 @@ class _NewProjectState extends State<NewProject> {
       body: Column(
         children: [
           Container(),
-          TextField1("hintText"),
+          // TextField1("hintText"),
           Container(
-            child: TextField1("hintText"),
+            // child: TextField1("hintText"),
             height: 400,
           ),
-          TextField1("hintText"),
-          TextField1("hintText"),
-          TextField1("hintText"),
+          // TextField1("hintText"),
+          // TextField1("hintText"),
+          // TextField1("hintText"),
           Button1("Create", () {}, true)
         ],
       ),

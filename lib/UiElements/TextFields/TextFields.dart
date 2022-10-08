@@ -3,9 +3,10 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class TextField1 extends StatelessWidget {
-  TextField1(this.hintText, {super.key});
+  TextField1(this.hintText, this._controller);
 
   String hintText;
+  TextEditingController _controller;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,7 @@ class TextField1 extends StatelessWidget {
         color: Colors.black12,
       ),
       child: TextField(
+        controller: _controller,
         decoration: InputDecoration(
           disabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Theme.of(context).primaryColorDark),
@@ -24,7 +26,7 @@ class TextField1 extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
               borderSide:
                   BorderSide(color: Theme.of(context).primaryColorDark)),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.black),
           ),
           labelText: hintText,

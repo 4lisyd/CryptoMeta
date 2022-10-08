@@ -1,5 +1,11 @@
+import 'dart:convert';
+import 'package:crypto_meta/Screens/Intro/Intro.dart';
+import 'package:crypto_meta/Services/SignInNUp.dart';
 import 'package:crypto_meta/UiElements/Buttons/buttons.dart';
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
+
+import '../../UiElements/PopUps/PopUp.dart';
 
 class MyProfileSetting extends StatelessWidget {
   const MyProfileSetting({Key? key}) : super(key: key);
@@ -8,7 +14,32 @@ class MyProfileSetting extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(actions: [
-        Container(child: Button1("Logout", () {}, true), width: 100),
+        Container(
+            width: 100,
+            child: Button1("Logout", () async {
+              var result = context.read<CurrentUserService>().logOutUser();
+
+              // var decoded = jsonDecode(result.toString());
+              var decoded = result;
+              if (decoded == null) {
+                print("signed out successfully");
+                // the api response is null when it logs in succesfully
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Intro(),
+                    ));
+              } else {
+                // else show the error in a pop up
+
+                print(decoded.toString() + "finalfinal");
+                // showDialog(
+                //   context: context,
+                //   builder: (BuildContext context) =>
+                //       PopUp1(warning: decoded['message'].toString()),
+                // );
+              }
+            }, true)),
       ]),
       body: Column(
         children: [
